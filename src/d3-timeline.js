@@ -1,7 +1,7 @@
 // vim: ts=2 sw=2
 (function () {
   d3.timeline = function() {
-    var DISPLAY_TYPES = ["circle", "rect"];
+    var DISPLAY_TYPES = ["circle", "rect", "rounded-rect"];
 
     var hover = function () {},
         mouseover = function () {},
@@ -26,6 +26,7 @@
         timeIsRelative = false,
         itemHeight = 20,
         itemMargin = 5,
+        radius = 10,
         showTodayLine = false,
         showTodayFormat = {marginTop: 25, marginBottom: 0, width: 1, color: colorCycle},
         showBorderLine = false,
@@ -129,6 +130,8 @@
             })
             .attr("cy", getStackPosition)
             .attr("cx", getXPos)
+            .attr("ry", radius)
+            .attr("rx", radius)
             .attr("r", itemHeight / 2)
             .attr("height", itemHeight)
             .style("fill", function(d, i){
@@ -337,6 +340,12 @@
     timeline.display = function (displayType) {
       if (!arguments.length || (DISPLAY_TYPES.indexOf(displayType) == -1)) return display;
       display = displayType;
+      return timeline;
+    };
+    
+    timeline.radius = function (r) {
+      if (!arguments.length) return radius;
+      radius = r;
       return timeline;
     };
 
