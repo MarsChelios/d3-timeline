@@ -27,6 +27,7 @@
         itemHeight = 20,
         itemMargin = 5,
         radius = 10,
+        offset = 0,
         showTodayLine = false,
         showTodayFormat = {marginTop: 25, marginBottom: 0, width: 1, color: colorCycle},
         showBorderLine = false,
@@ -126,7 +127,7 @@
             .attr("x", getXPos)
             .attr("y", getStackPosition)
             .attr("width", function (d, i) {
-              return (d.ending_time - d.starting_time) * scaleFactor;
+              return (d.ending_time - d.starting_time - offset) * scaleFactor;
             })
             .attr("cy", getStackPosition)
             .attr("cx", getXPos)
@@ -248,11 +249,11 @@
       }
 
       function getXPos(d, i) {
-        return margin.left + (d.starting_time - beginning) * scaleFactor;
+        return margin.left+ offset + (d.starting_time - beginning) * scaleFactor;
       }
 
       function getXTextPos(d, i) {
-        return margin.left + (d.starting_time - beginning) * scaleFactor + 5;
+        return margin.left + offset + (d.starting_time - beginning) * scaleFactor + 5;
       }
 
       function setHeight() {
@@ -346,6 +347,12 @@
     timeline.radius = function (r) {
       if (!arguments.length) return radius;
       radius = r;
+      return timeline;
+    };   
+    
+    timeline.offset = function (o) {
+      if (!arguments.length) return offset;
+      offset = o;
       return timeline;
     };
 
