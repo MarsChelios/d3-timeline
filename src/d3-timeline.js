@@ -135,6 +135,7 @@
             .attr("cx", getXPos)
             .attr("ry", radius)
             .attr("rx", radius)
+            .attr("offset", offset)
             .attr("r", itemHeight / 2)
             .attr("height", itemHeight)
             .style("fill", function(d, i){
