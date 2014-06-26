@@ -27,7 +27,7 @@
         itemHeight = 20,
         itemMargin = 5,
         radius = 10,
-        offset = 0,
+        offset = 10,
         showTodayLine = false,
         showTodayFormat = {marginTop: 25, marginBottom: 0, width: 1, color: colorCycle},
         showBorderLine = false,
