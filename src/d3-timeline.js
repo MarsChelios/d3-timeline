@@ -122,6 +122,8 @@
           var hasLabel = (typeof(datum.label) != "undefined");
           var hasId = (typeof(datum.id) != "undefined");
 
+          console.log(offset);
+
           g.selectAll("svg").data(data).enter()
             .append(display)
             .attr("x", getXPos)
