@@ -129,7 +129,7 @@
             .attr("x", getXPos)
             .attr("y", getStackPosition)
             .attr("width", function (d, i) {
-              return (d.ending_time - d.starting_time) * scaleFactor;
+              return ((d.ending_time - d.starting_time) - offset) * scaleFactor;
             })
             .attr("cy", getStackPosition)
             .attr("cx", getXPos)
