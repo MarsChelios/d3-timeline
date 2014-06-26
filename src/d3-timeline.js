@@ -129,7 +129,7 @@
             .attr("x", getXPos)
             .attr("y", getStackPosition)
             .attr("width", function (d, i) {
-              return (d.ending_time - d.starting_time - offset) * scaleFactor;
+              return (d.ending_time - d.starting_time) * scaleFactor;
             })
             .attr("cy", getStackPosition)
             .attr("cx", getXPos)
@@ -252,7 +252,7 @@
       }
 
       function getXPos(d, i) {
-        return margin.left+ offset + (d.starting_time - beginning) * scaleFactor;
+        return margin.left + offset + (d.starting_time - beginning) * scaleFactor;
       }
 
       function getXTextPos(d, i) {
