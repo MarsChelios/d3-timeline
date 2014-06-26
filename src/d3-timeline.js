@@ -1,7 +1,7 @@
 // vim: ts=2 sw=2
 (function () {
   d3.timeline = function() {
-    var DISPLAY_TYPES = ["circle", "rect", "rounded-rect"];
+    var DISPLAY_TYPES = ["circle", "rect"];
 
     var hover = function () {},
         mouseover = function () {},
